@@ -3,9 +3,9 @@
       <Header></Header>
       <div class="text-content">
         <div class="text-title">
-          {{newData.title}}
+          {{swiperData.title}}
         </div>
-        <div class="text-desc" v-html="newData.content">
+        <div class="text-desc" v-html="swiperData.content">
         </div>
       </div>
     </div>
@@ -15,15 +15,15 @@
     export default {
       data() {
         return {
-          newData: {}
+          swiperData: {}
         }
       },
       methods: {
         getNewData() {
           this.$axios.get(`/news/newsContent.do?newsId=${this.$route.query.newId}`).then(res => {
             if(res.code == 1) {
-              this.newData = res.data
-              console.log(this.newData )
+              this.swiperData = res.data
+              console.log(this.swiperData )
             }
           })
         }

@@ -4,7 +4,7 @@
       <div class="header-wrap-logo">
         <img src="/static/imgs/logo.png">
       </div>
-      <a href="#" class="header-wrap-layout" @click="$router.push('/login')">登录</a>
+      <router-link to="/login"  class="header-wrap-login" v-show="!this.$store.state.userInfo.username">登录</router-link>
     </div>
     <swiper class="swiper-wrap"
             :options="swiperOption"
@@ -23,8 +23,8 @@
     </swiper>
     <div class="information-wrap">
       <ul class="information-content">
-        <li v-for="(item, index) in lists" :key="index">
-          <router-link :to="{path: item.path, query: {type: index, title: item.title}}">
+        <li v-for="(item, index) in newsLists" :key="index">
+          <router-link :to="{path: item.path, query: {type: item.id, title: item.title}}">
             <img :src="item.imgUrl">
             <p>{{item.title}}</p>
           </router-link>
@@ -38,13 +38,8 @@
       <div class="news-left">
       </div>
       <div class="news-right">
-        <div class="row">
-          <router-link to="/"></router-link>
-          <router-link to="/"></router-link>
-        </div>
-        <div class="row">
-          <router-link to="/"></router-link>
-          <router-link to="/"></router-link>
+        <div class="right-item"  v-for="(item, index) in buildLists" :key="index">
+          <router-link  :to="{path: item.path, query: {type: item.id, title: item.title}}"></router-link>
         </div>
       </div>
     </div>
@@ -62,34 +57,63 @@
     },
     data() {
       return {
-        lists: [
+        newsLists: [
           {
             path: '/newsshow',
             imgUrl: '/static/imgs/icon_01.png',
-            title: '信工新闻眼'
+            title: '信工新闻眼',
+            id: 0
           },
           {
             path: '/moblife',
             imgUrl: '/static/imgs/icon_03.png',
-            title: '党员与组织'
+            title: '党员与组织',
+            id: 1
           },
           {
+            path: '/partyaction',
             imgUrl: '/static/imgs/icon_05.png',
-            title: '党员云互动'
+            title: '党员云互动',
+            id: 2
           },
           {
             path: '/newsshow',
             imgUrl: '/static/imgs/icon_04.png',
-            title: '党建一点通'
+            title: '党建一点通',
+            id: 3
           },
           {
             path: '/newsshow',
             imgUrl: '/static/imgs/icon_06.png',
-            title: '党员风采录'
+            title: '党员风采录',
+            id: 5
           },
           {
             imgUrl: '/static/imgs/icon_02.png',
-            title: '党史上的今天'
+            title: '党史上的今天',
+            id: 6
+          },
+        ],
+        buildLists: [
+          {
+            path: '/newsshow',
+            title: '随时随地学',
+            id: 6
+          },
+          {
+            path: '/newsshow',
+            title: '随时随地拍',
+            id: 7
+          },
+          {
+            path: '/newsshow',
+            title: '制度建设',
+            id: 4
+          },
+          {
+            path: '/newsshow',
+            title: '特色活动',
+            id: 1
           },
         ],
         banner: [],
@@ -99,7 +123,7 @@
           pagination: {
             el: '.swiper-pagination'
           },
-        }
+        },
       }
     },
     methods: {
@@ -141,7 +165,7 @@
       }
     }
 
-    .header-wrap-layout {
+    .header-wrap-login {
       position: absolute;
       top: 0.40rem;
       right: 0.45rem;
@@ -150,6 +174,10 @@
       font-size: 17px;
       color: #fff;
       text-decoration: none;
+    }
+
+    .header-wrap-islogin {
+      display: none;
     }
   }
   .swiper-wrap {
@@ -245,13 +273,18 @@
 
     .news-right {
       flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
 
-      .row {
-        display: flex;
+      .right-item {
+        width: 50%;
         height: 50%;
 
         a {
-          flex: 1;
+          display: block;
+          width: 100%;
+          height: 100%;
         }
       }
     }

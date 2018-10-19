@@ -25,6 +25,26 @@
     export default {
         data() {
           return {
+            navData: [
+              {
+                path: '/',
+                title: '首页',
+                url: '/static/imgs/党_grey.png',
+                selectUrl: '/static/imgs/党_red.png'
+              },
+              {
+                path: '/notice',
+                title: '通知',
+                url: '/static/imgs/党_grey.png',
+                selectUrl: '/static/imgs/党_red.png'
+              },
+              {
+                path: '/personal',
+                title: '个人中心',
+                url: '/static/imgs/党_grey.png',
+                selectUrl: '/static/imgs/党_red.png'
+              }
+            ]
           }
         }
     }
@@ -61,14 +81,20 @@
 
     .item-img-home {
       background: url("/static/imgs/党_grey.png") no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
     }
 
     .item-img-notice {
       background: url("/static/imgs/消息_grey.png") no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
     }
 
     .item-img-personal {
       background: url("/static/imgs/会员_grey.png") no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
     }
 
   }
@@ -78,6 +104,8 @@
     color: #c7000a;
     .item-img-home {
       background: url("/static/imgs/党_red.png") no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
     }
   }
 
@@ -87,14 +115,20 @@
 
     .item-img-home {
       background: url("/static/imgs/党_red.png") no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
     }
 
     .item-img-notice {
       background: url("/static/imgs/消息_red.png") no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
     }
 
     .item-img-personal {
       background: url("/static/imgs/会员_red.png") no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
     }
   }
 }

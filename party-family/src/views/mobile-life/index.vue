@@ -56,7 +56,7 @@
   }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .header-wrap {
     position: relative;
     display: flex;

@@ -6,7 +6,7 @@
           <img src="/static/imgs/logo.png">
         </div>
         <div class="login-input">
-          <input v-model="userInfo.username" type="text" placeholder="请输入身份证号">
+          <input v-model="userInfo.id_card" type="text" placeholder="请输入身份证号">
           <input v-model="userInfo.password "type="password" placeholder="请输入密码">
           <button @click="this.handleLogin">登录</button>
         </div>
@@ -15,21 +15,36 @@
 </template>
 
 <script>
+    import { Indicator } from 'mint-ui'
+    import qs from 'qs'
     export default {
+      components: {
+        Indicator
+      },
       data() {
         return {
           userInfo: {
-            username: '',
+            id_card: '',
             password: ''
           }
         }
       },
       methods: {
         handleLogin() {
-          console.log(this.userInfo)
-          this.$axios.post('/user/userLogin.do',this.userInfo).then(res => {
-            console.log(res)
-          })
+          Indicator.open({
+            text: '正在登录中...',
+            spinnerType: 'snake'
+          });
+          this.$axios.post(`/user/userLogin.do?${qs.stringify(this.userInfo)}`,
+            {headers: {'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary6G4oNRwQHQvMUSkp'}})
+            .then(res => {
+              if(res.code == 1) {
+                window.localStorage.setItem('Token', res.token)
+                this.$store.commit('HANDLE_USERINFO', res.data)
+                Indicator.close();
+                this.$router.push('/personal')
+              }
+            })
         }
       }
     }

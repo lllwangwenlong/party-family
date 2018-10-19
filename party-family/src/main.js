@@ -7,7 +7,7 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import Header from '@/components/Header'
 import axios from './utils/index'
-import store from '../store/index'
+import store from './store/index'
 
 Vue.prototype.$axios = axios
 Vue.component('Header', Header)

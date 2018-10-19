@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="news-list" v-for="(item, index) in news" :key="index">
-      <router-link to="/newsshow/newdetail" class="list-item">
+      <router-link :to="{ path: '/newsshow/newdetail', query: {newsId: item.newsId}}" class="list-item">
         <div class="item-left">
           <img :src="item.pic">
         </div>
@@ -26,23 +26,26 @@
 
 <script>
   export default {
+    components: {
+
+    },
     data() {
       return {
-        news: []
+        news: [],
+        pn: {
+          page: 1
+        }
       }
     },
     methods: {
-      getNewsData() {
-        this.$store.commit('handleshow')
-        console.log(this.$store.state.isLoading)
-        this.$axios.get(`/news/newsList.do?type=${this.$route.query.type}`).then(res => {
+      getNewsData(pn) {
+        this.$axios.get(`/news/newsList.do?type=${this.$route.query.type}`,this.pn).then(res => {
           if(res.code == 1) {
+            console.log(res.rows)
             this.news = res.rows
-            this.$store.commit('handleshow')
-            console.log(this.$store.state.isLoading)
           }
         })
-      }
+      },
     },
     created() {
       this.getNewsData()
@@ -59,10 +62,10 @@
     }
     .list-item {
       display: flex;
-      width: 7.50rem;
-      height: 1.60rem;
+      width: 7.5rem;
+      height: 2.0rem;
       background: #fff;
-      margin: 0.20rem;
+      padding: 0.2rem;
       box-sizing: border-box;
 
       .item-left {
