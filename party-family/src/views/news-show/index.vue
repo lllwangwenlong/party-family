@@ -23,6 +23,10 @@
 
 <style scoped lang="scss">
   .header-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 7.50rem;
     height: 0.86rem;
     background: #c50206;

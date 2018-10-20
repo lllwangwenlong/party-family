@@ -35,6 +35,7 @@
 
 <style lang="scss">
   .text-content {
+    margin-top: 0.85rem;
     padding: 0.2rem;
   .text-title {
     font-size: 24px;
@@ -75,10 +76,10 @@
     display: block;
     margin: 0.2rem 0 0.4rem;
     width: 7.1rem;
+  }
 
-  img {
-    width: 100%;
-  }
-  }
+    img {
+      width: 100%;
+    }
   }
 </style>

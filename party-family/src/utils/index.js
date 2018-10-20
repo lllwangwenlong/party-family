@@ -1,5 +1,4 @@
 const axios = require('axios')
-const qs = require('qs')
 const baseURL = 'http://211.67.177.56:8080/hhdj'
 
 const instance = axios.create({
@@ -10,7 +9,16 @@ const instance = axios.create({
 const xhr = {
   get (url, data, config) {
     return new Promise((resolve, reject) => {
-      instance.get(url, {params: data}, config).then(res => {
+      const token = localStorage.getItem('Token')
+      if(token) {
+        config = {
+          ...config,
+          headers: {
+            'token': token
+          }
+        }
+      }
+      instance.get(url, {params: data, ...config}).then(res => {
         resolve(res.data)
       }).catch(err => {
         reject(err)
@@ -19,7 +27,16 @@ const xhr = {
   },
   fetch (url, data, config, methods) {
     return new Promise((resolve, reject) => {
-      instance[methods](url, data, config).then(res => {
+      const token = localStorage.getItem('Token')
+      if(token) {
+        config = {
+          ...config,
+          headers: {
+            'token': token
+          }
+        }
+      }
+      instance[methods](url, data,config).then(res => {
         resolve(res.data)
       }).catch(err => {
         reject(err)

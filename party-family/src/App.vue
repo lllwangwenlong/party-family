@@ -16,15 +16,15 @@
     padding: 0;
   }
 
-  fll {
+  .fll {
     float: left;
   }
 
-  flr {
+  .flr {
     float: right;
   }
 
-  clearfix {
+  .clearfix {
     content: '';
     display: block;
     clear: both;

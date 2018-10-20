@@ -42,34 +42,68 @@
         </div>
       </div>
     </div>
-    <div class="publish-action">
-      <img src="/static/imgs/加号.png" alt="">
+    <div class="publish-action" @click="handleReply">
+      <img class="publish-icon" src="/static/imgs/加号.png">
+    </div>
+    <div class="reply-detail" v-show="isReply">
+      <form action="" class="reply-form">
+        <textarea name="content" class="reply-text"  v-model="formData.content">
+        </textarea>
+        <div class="reply-action">
+          <input type="button" style="background:#ef473a;" value="发布" @click="handlePublish">
+          <input type="button" value="取消" @click="handleCancle">
+        </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
+    import { MessageBox } from 'mint-ui'
+    import qs from 'qs'
     export default {
       data() {
         return {
           title: '',
           actions: [],
-          formData: {
+          pn: {
             page: 1,
             rows: 10
-          }
+          },
+          formData: {
+            content: '',
+            type: 1
+          },
+          isReply: false
         }
       },
       methods: {
         getActionData() {
           this.title = this.$route.query.title
-          this.$axios.get('/forum/forumList.do',this.formData).then(res => {
+          this.$axios.get('/forum/forumList.do',this.pn).then(res => {
             if(res.code == 1) {
               this.actions = res.rows
-              console.log(this.actions)
             }
           })
-        }
+        },
+        handleReply() {
+          this.isReply = !this.isReply
+        },
+        handlePublish() {
+          this.$axios.post(`/forum/saveForum.do?${qs.stringify(this.formData)}`,
+            {headers: {'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary6G4oNRwQHQvMUSkp'}})
+            .then(res => {
+            if(res.code == 1) {
+              this.isReply = !this.isReply
+              MessageBox({
+                message: res.msg
+              })
+            }
+          })
+        },
+        handleCancle() {
+          this.isReply = !this.isReply
+        },
       },
       created() {
         this.getActionData()
@@ -81,8 +115,13 @@
   .container {
     background: #f1f1f1;
     .header-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       width: 7.50rem;
       height: 0.86rem;
+      z-index: 998;
       background: #c50206;
       display: flex;
 
@@ -112,7 +151,7 @@
       color: #333;
       font-weight: 400;
       background: #fff;
-      margin-bottom: 0.2rem;
+      margin: 0.86rem 0 0.2rem;
 
       .action-detail {
         position: relative;
@@ -131,6 +170,7 @@
               border-radius: 50%;
               display: block;
               width: 100%;
+              height: 100%;
             }
           }
 
@@ -222,12 +262,60 @@
       border: 1px solid #f00;
       background: #f00;
 
-      img {
+      .publish-icon {
         display: block;
         width: 0.64rem;
         height: 0.64rem;
         padding: 0.18rem;
       }
     }
+
+    .reply-detail {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 998;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .5);
+
+      .reply-form {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3.22rem;
+        padding: 0.2rem;
+        box-sizing: border-box;
+        background: #e6e6e6;
+
+        .reply-text {
+          width: 100%;
+          height: 2.0rem;
+          font-size:20px;
+          border: none;
+          background: #fff;
+          border-radius: 4px;
+        }
+
+        .reply-action {
+          width: 100%;;
+          display: flex;
+          justify-content: space-between;
+
+          input {
+            font-size: 12px;
+            color: #333;
+            font-weight: 400;
+            width: 0.68rem;
+            height: 0.62rem;
+            border-radius: 4px;
+            border: none;
+          }
+        }
+      }
+    }
+
   }
 </style>

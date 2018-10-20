@@ -43,6 +43,7 @@
 
 <style scoped lang="scss">
 .views-content {
+  margin-top: 0.86rem;
   text-decoration: none;
 
   a {

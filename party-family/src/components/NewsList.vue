@@ -27,22 +27,26 @@
 <script>
   export default {
     components: {
-
     },
     data() {
       return {
         news: [],
+        page: 1,
         pn: {
-          page: 1
-        }
+          page: 1,
+          rows: 10,
+        },
+        loading: false
       }
     },
     methods: {
-      getNewsData(pn) {
+      getNewsData() {
+        console.log(this.$route.query.type)
         this.$axios.get(`/news/newsList.do?type=${this.$route.query.type}`,this.pn).then(res => {
           if(res.code == 1) {
-            console.log(res.rows)
-            this.news = res.rows
+            this.news = [
+              ...this.news,...res.rows
+            ]
           }
         })
       },
@@ -54,66 +58,70 @@
 </script>
 
 <style scoped lang="scss">
-  .news-list {
-    border: 1px solid #f1f1f1;
+  .container {
+    margin-top: 0.86rem;
 
-    a {
-      text-decoration: none;
-    }
-    .list-item {
-      display: flex;
-      width: 7.5rem;
-      height: 2.0rem;
-      background: #fff;
-      padding: 0.2rem;
-      box-sizing: border-box;
+    .news-list {
+      border: 1px solid #f1f1f1;
 
-      .item-left {
-        width: 1.60rem;
-        height: 1.60rem;
-        margin-right: 0.20rem;
+      a {
+        text-decoration: none;
+      }
+      .list-item {
+        display: flex;
+        width: 7.5rem;
+        height: 2.0rem;
+        background: #fff;
+        padding: 0.2rem;
+        box-sizing: border-box;
 
-        img {
-          width: 100%;
-          height: 100%;
+        .item-left {
+          width: 1.60rem;
+          height: 1.60rem;
+          margin-right: 0.20rem;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
-  }
 
-  .news-list .list-item .item-right {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 5.30rem;
-    height: 1.60rem;
-
-    .item-title {
-      height: 0.96rem;
-      font-size: 17px;
-      color: #000;
-    }
-
-    .item-detail {
+    .news-list .list-item .item-right {
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
+      width: 5.30rem;
+      height: 1.60rem;
 
-      .item-time {
-        font-size: 12px;
-        color: #333;
-        font-weight: 400;
+      .item-title {
+        height: 0.96rem;
+        font-size: 17px;
+        color: #000;
       }
 
-      .look-nums {
+      .item-detail {
         display: flex;
         justify-content: space-between;
-        font-size: 12px;
-        color: #333;
-        font-weight: 400;
 
-        img {
-          width: 0.36rem;
-          height: 0.36rem;
+        .item-time {
+          font-size: 12px;
+          color: #333;
+          font-weight: 400;
+        }
+
+        .look-nums {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+          color: #333;
+          font-weight: 400;
+
+          img {
+            width: 0.36rem;
+            height: 0.36rem;
+          }
         }
       }
     }

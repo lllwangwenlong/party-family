@@ -20,7 +20,7 @@
         <img class="item-right" src="/static/imgs/right.png">
       </router-link>
     </div>
-    <Button type="danger" size="large" @click.native="handleLogin">退出登录</Button>
+    <Button type="danger" size="large" v-show="this.$store.state.userInfo.username" @click.native="handleLogin">退出登录</Button>
   </div>
 </template>
 
@@ -87,6 +87,7 @@
     }
   }
   .user-view {
+    margin-top: 0.86rem;
     width: 7.50rem;
     height: 2.80rem;
     background: #c50206;

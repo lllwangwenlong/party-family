@@ -6,18 +6,15 @@ const components = {
   Notice : () => import('@/components/Notice'),
   Personal : () => import('@/components/Personal'),
   Login: () => import('@/components/Login'),
+  NewsList: () => import('@/components/NewsList'),
+  NewDetail: () => import('@/components/NewDetail'),
+  PhotoAction: () => import('@/components/PhotoAction'),
   Home: () => import('@/views/home/index'),
   MoLife: () => import('@/views/mobile-life/index'),
   MewsShow: () => import('@/views/news-show/index'),
   SwiDetail: () => import('@/views/swiper-detail/index'),
-  NewsList: () => import('@/components/NewsList'),
-  NewDetail: () => import('@/components/NewDetail'),
   PartyAction: () => import('@/views/party-interraction/index'),
   UserInfo: () => import('@/views/userInfo/index'),
-  StudyEvery: () => import('@/views/studyEvery/index'),
-  PhotoEvery: () => import('@/views/photoEvery/index'),
-  Actions: () => import('@/views/actions/index'),
-  SystemBuild: () => import('@/views/systemBuild/index'),
 }
 
 Vue.use(Router)
@@ -104,6 +101,14 @@ export default new Router({
           component: components.NewsList,
         },
         {
+          path: 'photoaction',
+          name: 'photoaction',
+          meta: {
+            title: '图片展览'
+          },
+          component: components.PhotoAction,
+        },
+        {
           path: 'newdetail',
           name: 'newdetail',
           meta: {
@@ -120,42 +125,6 @@ export default new Router({
         title: '个人信息'
       },
       component: components.UserInfo,
-    },
-    {
-      path: '/studyEvery',
-      name: 'studyEvery',
-      meta: {
-        title: '随时随地学',
-        type: 6
-      },
-      component: components.StudyEvery,
-    },
-    {
-      path: '/photoEvery',
-      name: 'photoEvery',
-      meta: {
-        title: '随时随地拍',
-        type: 7
-      },
-      component: components.PhotoEvery,
-    },
-    {
-      path: '/actions',
-      name: 'actions',
-      meta: {
-        title: '特色活动',
-        type: 4
-      },
-      component: components.Actions,
-    },
-    {
-      path: '/systemBuild',
-      name: 'systemBuild',
-      meta: {
-        title: '制度建设',
-        type: 1
-      },
-      component: components.SystemBuild,
     },
   ]
 })

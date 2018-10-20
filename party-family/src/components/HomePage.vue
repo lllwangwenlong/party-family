@@ -101,7 +101,7 @@
             id: 6
           },
           {
-            path: '/newsshow',
+            path: '/newsshow/photoaction',
             title: '随时随地拍',
             id: 7
           },
