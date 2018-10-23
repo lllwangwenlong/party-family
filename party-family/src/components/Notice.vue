@@ -2,7 +2,7 @@
     <div class="container">
       <Header></Header>
       <div class="views-content" v-for="(item, index) in views" :key="index">
-        <router-link to="/" class="list-item">
+        <router-link :to="{ path: '/newsshow/newdetail', query: {newsId: item.newsId}}" class="list-item">
           <div class="notice-img">
             <img src="/static/imgs/iconfont_gonggaotongzhi.png">
           </div>
@@ -24,20 +24,24 @@
 
 <script>
     export default {
-        data() {
+      data() {
           return {
-            views: [
-              {
-                title: '关于我院党总支近期将举办党的十九大知识竞赛的通知',
-                updateTime: '2017-10-30 14:53:56'
-              },
-              {
-                title: '关于我院党总支近期将举办党的十九大知识竞赛的通知',
-                updateTime: '2017-10-30 14:53:56'
-              },
-            ]
+            views: []
           }
-        }
+        },
+      methods: {
+          getData() {
+            this.$axios.get(`/news/newsList.do?type=${this.$route.meta.type}`).then(res => {
+              if(res.code == 1) {
+                this.views = res.rows
+                console.log(this.views)
+              }
+            })
+          }
+      },
+      created() {
+        this.getData()
+      }
     }
 </script>
 

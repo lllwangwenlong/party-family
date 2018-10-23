@@ -25,6 +25,7 @@
     height: 0.86rem;
     background: #c50206;
     display: flex;
+    z-index: 998;
 
     img {
       width: 0.72rem;

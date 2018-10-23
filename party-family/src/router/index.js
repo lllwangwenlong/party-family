@@ -13,8 +13,17 @@ const components = {
   MoLife: () => import('@/views/mobile-life/index'),
   MewsShow: () => import('@/views/news-show/index'),
   SwiDetail: () => import('@/views/swiper-detail/index'),
+  InterractionShows: () => import('@/views/interractionshows/index'),
   PartyAction: () => import('@/views/party-interraction/index'),
+  InterractionDetail: () => import('@/views/interraction-detail/index'),
   UserInfo: () => import('@/views/userInfo/index'),
+  EditUserInfo: () => import('@/views/edituserInfo/index'),
+  ChangePassword: () => import('@/views/change-password/index'),
+  PerosnalLhjf: () => import('@/views/perosnal-lhjf/index'),
+  ScoreDetail: () => import('@/views/score-detail/index'),
+  FindOrg: () => import('@/views/findorg/index'),
+  PartyToday: () => import('@/views/party-today/index'),
+
 }
 
 Vue.use(Router)
@@ -30,13 +39,17 @@ export default new Router({
         {
           path: 'homePage',
           name: 'homePage',
+          meta: {
+            type: 0
+          },
           component: components.HomePage,
         },
         {
           path: 'notice',
           name: 'notice',
           meta: {
-            title: '通知'
+            title: '通知',
+            type: 2
           },
           component: components.Notice
         },
@@ -76,12 +89,31 @@ export default new Router({
       component: components.MoLife
     },
     {
-      path: '/partyaction',
-      name: 'partyaction',
+      path: '/partyactionshows',
+      name: 'partyactionshows',
       meta: {
         title: '党员云互动'
       },
-      component: components.PartyAction,
+      component: components.InterractionShows,
+      redirect: '/partyactionshows/partyaction',
+      children: [
+        {
+          path: 'partyaction',
+          name: 'partyaction',
+          meta: {
+            title: '党员云互动'
+          },
+          component: components.PartyAction,
+        },
+        {
+          path: 'interractiondetail',
+          name: 'interractiondetail',
+          meta: {
+            title: '党员云互动'
+          },
+          component: components.InterractionDetail,
+        }
+      ]
     },
     {
       path: '/newsshow',
@@ -125,6 +157,54 @@ export default new Router({
         title: '个人信息'
       },
       component: components.UserInfo,
+    },
+    {
+      path: '/edituserInfo',
+      name: 'edituserInfo',
+      meta: {
+        title: '修改个人信息'
+      },
+      component: components.EditUserInfo,
+    },
+    {
+      path: '/perosnallhjf',
+      name: 'perosnallhjf',
+      meta: {
+        title: '个人量化积分'
+      },
+      component: components.PerosnalLhjf,
+    },
+    {
+      path: '/scoredtail',
+      name: 'scoredtail',
+      meta: {
+        title: '积分明细'
+      },
+      component: components.ScoreDetail,
+    },
+    {
+      path: '/changepassword',
+      name: 'changepassword',
+      meta: {
+        title: '修改密码'
+      },
+      component: components.ChangePassword,
+    },
+    {
+      path: '/findorg',
+      name: 'findorg',
+      meta: {
+        title: '流动党员找组织'
+      },
+      component: components.FindOrg,
+    },
+    {
+      path: '/partytoday',
+      name: 'partytoday',
+      meta: {
+        title: '党史上的今天'
+      },
+      component: components.PartyToday,
     },
   ]
 })

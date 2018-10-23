@@ -31,6 +31,11 @@
     overflow: hidden;
   }
 
+  /*input, button, select, textarea {//去掉其所有的默认样式*/
+    /*outline: none;*/
+    /*-webkit-appearance: none;*/
+    /*border-radius: 0;*/
+  /*}*/
   /*.clearfix{*/
   /*overflow:auto;*/
   /*_height:1%*/

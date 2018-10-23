@@ -9,6 +9,11 @@ import Header from '@/components/Header'
 import axios from './utils/index'
 import store from './store/index'
 
+import { Loadmore } from 'mint-ui';
+
+Vue.component('mt-loadmore', Loadmore);
+
+
 Vue.prototype.$axios = axios
 Vue.component('Header', Header)
 Vue.use(MintUI)

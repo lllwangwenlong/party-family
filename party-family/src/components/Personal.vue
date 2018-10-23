@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header></Header>
-    <div class="user-view" @click="$router.push('/login')" v-if="userInfo.username">
+    <div class="user-view" v-if="this.$store.state.isLoading">
       <div class="user-avatar">
         <img :src="userInfo.header" alt="">
       </div>
@@ -20,7 +20,7 @@
         <img class="item-right" src="/static/imgs/right.png">
       </router-link>
     </div>
-    <Button type="danger" size="large" v-show="this.$store.state.userInfo.username" @click.native="handleLogin">退出登录</Button>
+    <Button type="danger" size="large" v-show="this.$store.state.isLoading" @click.native="handleLogin">退出登录</Button>
   </div>
 </template>
 
@@ -39,12 +39,12 @@
               desc: '个人信息'
             },
             {
-              path: '/userinfo',
+              path: '/perosnallhjf',
               url: '/static/imgs/量化积分icon.png',
               desc: '量化积分'
             },
             {
-              path: '/userinfo',
+              path: '/changepassword',
               url: '/static/imgs/修改密码icon.png',
               desc: '修改密码'
             },
@@ -59,8 +59,7 @@
       },
       methods: {
         handleLogin() {
-          sessionStorage.clear()
-          // window.location.reload()
+          this.$store.commit('HANDLE_ISLOADING')
           this.$router.push('/login')
         }
       },

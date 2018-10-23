@@ -7,7 +7,7 @@
     <div class="information-wrap">
       <ul class="information-content">
         <li v-for="(item, index) in lists" :key="index">
-          <router-link :to="{path: item.path, query: {type: index}}">
+          <router-link :to="{path: item.path, query: {type: index, title: item.title}}">
             <img :src="item.imgUrl">
             <p>{{item.title}}</p>
           </router-link>
@@ -26,7 +26,7 @@
       return {
         lists: [
           {
-            path: '',
+            path: '/newsshow',
             imgUrl: '/static/imgs/icon1.png',
             title: '政治学习'
           },
@@ -46,7 +46,7 @@
             title: '民主评议'
           },
           {
-            path: '',
+            path: '/findorg',
             imgUrl: '/static/imgs/icon5.png',
             title: '流动党员找组织'
           },

@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" style="overflow: scroll; height: calc(100vh - 0.86rem);">
   <div class="header-wrap">
     <img src="/static/imgs/左箭头.png" @click="$router.go(-1)">
     <p>{{this.title}}</p>

@@ -1,5 +1,6 @@
 const axios = require('axios')
 const baseURL = 'http://211.67.177.56:8080/hhdj'
+import qs from 'qs'
 
 const instance = axios.create({
   baseURL,
@@ -36,7 +37,7 @@ const xhr = {
           }
         }
       }
-      instance[methods](url, data,config).then(res => {
+      instance[methods](url, qs.stringify(data),config).then(res => {
         resolve(res.data)
       }).catch(err => {
         reject(err)

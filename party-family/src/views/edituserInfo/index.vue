@@ -1,9 +1,9 @@
 <template>
-    <div class="user-detail">
+    <div class="container">
       <div class="header-wrap clearfix">
         <img class="fll" src="/static/imgs/左箭头.png" @click="$router.go(-1)">
         <p class="fll">{{title}}</p>
-        <router-link class="fll" to="/edituserInfo">编辑</router-link>
+        <a class="fll"  @click="handleEdit">保存</a>
       </div>
       <div class="detail-content">
         <ul>
@@ -13,59 +13,64 @@
           </li>
           <li class="detail-item clearfix">
             <span class="fll">姓名</span>
-            <span class="flr">{{userInfo.username}}</span>
+            <input class="flr" type="text" v-model="userInfo.username">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">身份证</span>
-            <span class="flr">{{userInfo.idCard}}</span>
+            <input class="flr" type="text" disabled="disabled" v-model="userInfo.idCard">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">家庭地址</span>
-            <span class="flr">{{userInfo.hometown}}</span>
+            <input class="flr" type="text" v-model="userInfo.hometown">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">工作地址</span>
-            <span class="flr">{{userInfo.address}}</span>
+            <input class="flr" type="text" v-model="userInfo.address">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">民族</span>
-            <span class="flr">{{userInfo.nation}}</span>
+            <input class="flr" type="text" v-model="userInfo.nation">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">微信号</span>
-            <span class="flr">{{userInfo.wxNum}}</span>
+            <input class="flr" type="text" v-model="userInfo.wxNum">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">QQ号</span>
-            <span class="flr">{{userInfo.qqNum}}</span>
+            <input class="flr" type="text" v-model="userInfo.qqNum">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">性别</span>
-            <span class="flr">{{userInfo.sex}}</span>
+            <span class="change-sex flr">
+              <input type="radio" name="sex" value="1" style="margin: 0 0.1rem;" v-model="userInfo.sex">男
+              <input type="radio" name="sex" value="0" style="margin: 0 0.1rem;" v-model="userInfo.sex">女
+            </span>
           </li>
           <li class="detail-item clearfix">
             <span class="fll">最高学历</span>
-            <span class="flr">{{userInfo.education}}</span>
+            <input class="flr" type="text" v-model="userInfo.education">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">职称</span>
-            <span class="flr">{{userInfo.jobRank}}</span>
+            <input class="flr" type="text" v-model="userInfo.jobRank">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">薪资水平</span>
-            <span class="flr">{{userInfo.salary}}</span>
+            <input class="flr" type="text" v-model="userInfo.salary">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">入党时间</span>
-            <span class="flr">{{userInfo.joinPartyTime}}</span>
+            <input class="flr" type="date" v-model="userInfo.joinPartyTime">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">党费最后缴纳时间</span>
-            <span class="flr">{{userInfo.lastPayTime}}</span>
+            <input class="flr" type="date" v-model="userInfo.lastPayTime">
           </li>
           <li class="detail-item clearfix">
             <span class="fll">当前身份</span>
-            <span class="flr">{{userInfo.partyIdentity}}</span>
+            <select class="select flr" v-model="userInfo.partyStatus">
+              <option v-for="item in stateList" :value="item.value" :key="item.value">{{item.label}}</option>
+            </select>
           </li>
         </ul>
       </div>
@@ -73,12 +78,25 @@
 </template>
 
 <script>
-    import { Indicator } from 'mint-ui'
-
+    import { Toast, Indicator } from 'mint-ui';
     export default {
       data() {
         return {
-          userInfo: {}
+          userInfo: {},
+          stateList: [
+            {
+              value: '0',
+              label: '积极分子'
+            },
+            {
+              value: '1',
+              label: '预备党员'
+            },
+            {
+              value: '2',
+              label: '党员'
+            },
+          ]
         }
       },
       methods: {
@@ -91,6 +109,18 @@
             if(res. code == 1) {
               Indicator.close();
               this.userInfo = res.data
+            }
+          })
+        },
+        handleEdit() {
+          delete this.userInfo.idCard
+          delete this.userInfo.header
+          this.$axios.post('/user/modifyInfo.do',this.userInfo).then(res => {
+            if(res.code == 1) {
+              Toast({
+                message: res.msg,
+              });
+              this.$router.push('/userinfo')
             }
           })
         }
@@ -157,11 +187,48 @@
       color: #444;
       font-weight: 400;
 
+      select {
+        font-size: 14px;
+        color: #444;
+        font-weight: 400;
+        width: 2.0rem;
+        height: 0.56rem;
+        text-align: center;
+        margin: 0.22rem;
+        outline: none;
+        border-radius: 4px;
+        background: #fff;
+      }
+
       span {
         display: block;
         height: 0.56rem;
         margin: 0.22rem;
         line-height: 2;
+      }
+
+      input {
+        font-size: 14px;
+        color: #444;
+        font-weight: 400;
+        display: block;
+        height: 0.56rem;
+        margin: 0.22rem 0;
+        padding-right: 0.22rem;
+        text-align: right;
+        border: none;
+        outline: none;
+        background: #fff;
+      }
+
+      .change-sex {
+        display: flex;
+        font-size: 14px;
+        color: #444;
+        font-weight: 400;
+        height: 0.56rem;
+        margin: 0.22rem 0;
+        padding-right: 0.22rem;
       }
 
       img {

@@ -4,7 +4,7 @@
       <div class="header-wrap-logo">
         <img src="/static/imgs/logo.png">
       </div>
-      <router-link to="/login"  class="header-wrap-login" v-show="!this.$store.state.userInfo.username">登录</router-link>
+      <router-link to="/login" v-show="!this.$store.state.isLoading">登录</router-link>
     </div>
     <swiper class="swiper-wrap"
             :options="swiperOption"
@@ -49,6 +49,7 @@
 <script>
   import 'swiper/dist/css/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
+  import { Indicator } from 'mint-ui'
 
   export default {
     components: {
@@ -71,7 +72,7 @@
             id: 1
           },
           {
-            path: '/partyaction',
+            path: '/partyactionshows',
             imgUrl: '/static/imgs/icon_05.png',
             title: '党员云互动',
             id: 2
@@ -89,6 +90,7 @@
             id: 5
           },
           {
+            path: '/partytoday',
             imgUrl: '/static/imgs/icon_02.png',
             title: '党史上的今天',
             id: 6
@@ -128,8 +130,13 @@
     },
     methods: {
       getSwiperData() {
-        this.$axios.get('/carousel/carouselList.do').then(res => {
+        Indicator.open({
+          text: '正在加载',
+          spinnerType: 'snake'
+        });
+        this.$axios.get(`/carousel/carouselList.do?type=${this.$route.meta.type}`).then(res => {
           if(res.code == 1) {
+            Indicator.close();
             this.banner = res.rows
           }
         })
@@ -149,13 +156,13 @@
     position: relative;
     display: flex;
     width: 7.50rem;
-    height: 1.14rem;
+    height: 0.86rem;
     background-color: #c50206;
 
     .header-wrap-logo {
       width: 2.60rem;
       height: 0.70rem;
-      margin: 0.22rem 0.48rem;
+      margin: 0.08rem 0.24rem;
       box-sizing: border-box;
 
       img {
@@ -165,14 +172,18 @@
       }
     }
 
-    .header-wrap-login {
+    a {
       position: absolute;
-      top: 0.40rem;
-      right: 0.45rem;
-      bottom: 0.40rem;
+      top: 0;
+      right: 0;
       display: block;
+      width: 1.0rem;
+      height: 0.86rem;
+      line-height: 0.86rem;
       font-size: 17px;
       color: #fff;
+      font-weight: 400;
+      text-align: center;
       text-decoration: none;
     }
 

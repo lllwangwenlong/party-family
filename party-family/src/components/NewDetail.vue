@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import { Indicator } from 'mint-ui'
     export default {
       data() {
         return {
@@ -19,10 +20,14 @@
       },
       methods: {
         getNewsData() {
+          Indicator.open({
+            text: '正在加载',
+            spinnerType: 'snake'
+          });
           this.$axios.get(`/news/newsContent.do?newsId=${this.$route.query.newsId}`).then(res => {
             if(res.code == 1) {
+              Indicator.close();
               this.newsData = res.data
-              console.log(this.newsData)
             }
           })
         }

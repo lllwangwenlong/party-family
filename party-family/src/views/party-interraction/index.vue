@@ -1,11 +1,7 @@
 <template>
   <div class="container">
-    <div class="header-wrap">
-      <img src="/static/imgs/左箭头.png" @click="$router.go(-1)">
-      <p>{{this.title}}</p>
-    </div>
-    <div class="action-content" v-for="(item, index) in actions" :key="index">
-      <div class="action-item">
+    <div class="action-content">
+      <div class="action-item"  v-for="(item, index) in actions" :key="index">
         <div class="action-detail">
           <div class="detail-left">
             <div class="avatar">
@@ -35,19 +31,19 @@
           {{item.content}}
         </div>
         <div class="action-reply">
-          <div class="reply-desc">
+          <div class="reply-desc" @click="$router.push({path: '/partyactionshows/interractiondetail', query: {data: item,form_id: item.forumId}})">
             <img src="/static/imgs/消息.png">
             <p>回复</p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="publish-action" @click="handleReply">
-      <img class="publish-icon" src="/static/imgs/加号.png">
+      <div class="publish-action" @click="handleReply">
+        <img class="publish-icon" src="/static/imgs/加号.png">
+      </div>
     </div>
     <div class="reply-detail" v-show="isReply">
       <form action="" class="reply-form">
-        <textarea name="content" class="reply-text"  v-model="formData.content">
+        <textarea name="content" class="reply-text"  v-model="formData.content" @keyup.enter="handlePublish">
         </textarea>
         <div class="reply-action">
           <input type="button" style="background:#ef473a;" value="发布" @click="handlePublish">
@@ -55,11 +51,13 @@
         </div>
       </form>
     </div>
+    <div class="black-curtain" v-show="isReply" @click="handleCancle"></div>
   </div>
 </template>
 
 <script>
-    import { MessageBox } from 'mint-ui'
+    import { Toast, Indicator } from 'mint-ui'
+
     import qs from 'qs'
     export default {
       data() {
@@ -79,9 +77,14 @@
       },
       methods: {
         getActionData() {
+          Indicator.open({
+            text: '正在加载',
+            spinnerType: 'snake'
+          });
           this.title = this.$route.query.title
           this.$axios.get('/forum/forumList.do',this.pn).then(res => {
             if(res.code == 1) {
+              Indicator.close();
               this.actions = res.rows
             }
           })
@@ -95,9 +98,12 @@
             .then(res => {
             if(res.code == 1) {
               this.isReply = !this.isReply
-              MessageBox({
-                message: res.msg
-              })
+              Toast({
+                message: res.msg,
+              });
+              this.formData.content = ''
+              this.getActionData()
+              this.$router.push('/partyactionshows/partyaction')
             }
           })
         },
@@ -113,180 +119,146 @@
 
 <style scoped lang="scss">
   .container {
-    background: #f1f1f1;
-    .header-wrap {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 7.50rem;
-      height: 0.86rem;
-      z-index: 998;
-      background: #c50206;
-      display: flex;
 
-      img {
-        width: 0.72rem;
-        height: 0.66rem;
-        margin-top: 0.13rem;
-      }
+    .action-content {
+      overflow: auto;
+      margin-top: 0.86rem;
+      .action-item {
+        width: 7.5rem;
+        padding: 0.32rem;
+        box-sizing: border-box;
+        font-size: 16px;
+        color: #333;
+        font-weight: 400;
+        background: #fff;
+        margin-bottom: 0.2rem;
 
-      p {
-        width: 6.06rem;
-        height: 100%;
-        line-height: 0.86rem;
-        font-size: 18px;
-        color: #fff;
-        margin-right: 0.72rem;
-        text-align: center;
-      }
-    }
+        .action-detail {
+          position: relative;
+          width: 6.7rem;
 
-    .action-item {
-      width: 7.5rem;
-      /*height: 2.82rem;*/
-      padding: 0.32rem;
-      box-sizing: border-box;
-      font-size: 16px;
-      color: #333;
-      font-weight: 400;
-      background: #fff;
-      margin: 0.86rem 0 0.2rem;
+          .detail-left {
+            display: flex;
+            justify-content: space-between;
+            width: 4.4rem;
+            height: 0.82rem;
+            .avatar {
+              width: 0.66rem;
+              height: 0.66rem;
 
-      .action-detail {
-        position: relative;
-        width: 6.7rem;
+              img {
+                border-radius: 50%;
+                display: block;
+                width: 100%;
+                height: 100%;
+              }
+            }
 
-        .detail-left {
-          display: flex;
-          justify-content: space-between;
-          width: 4.4rem;
-          height: 0.82rem;
-          .avatar {
-            width: 0.66rem;
-            height: 0.66rem;
+            .action-desc {
+              width: 3.46rem;
+              height: 0.8rem;
 
-            img {
-              border-radius: 50%;
-              display: block;
-              width: 100%;
-              height: 100%;
+              .username {
+                width: 100%;
+                height: 0.4rem;
+              }
+
+
             }
           }
 
-          .action-desc {
-            width: 3.46rem;
-            height: 0.8rem;
+          .action-desc .state {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 0.4rem;
+            font-size: 12px;
 
-            .username {
-              width: 100%;
-              height: 0.4rem;
+            .state-img {
+              margin : auto 0;
+              width: 0.24rem;
+              height: 0.28rem;
+
+              img {
+                display: block;
+                width: 100%;
+              }
             }
+          }
 
-
+          .action-title {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1.36rem;
+            height: 0.52rem;
+            padding: 0.1rem;
+            box-sizing: border-box;
+            font-size: 12px;
+            line-height: 1;
+            color: #f00;
+            border: 1px solid #f00;
+            border-radius: 15%/50%;
+            text-align: center;
           }
         }
 
-        .action-desc .state {
-          display: flex;
-          justify-content: space-between;
+        .action-text {
+          width: 100%;
+          padding: 0.2rem 0;
+          box-sizing: border-box;
+        }
+
+        .action-reply {
+          position: relative;
           width: 100%;
           height: 0.4rem;
-          font-size: 12px;
 
-          .state-img {
-            margin : auto 0;
-            width: 0.24rem;
-            height: 0.28rem;
-
-            img {
-              display: block;
-              width: 100%;
-            }
+          .reply-desc {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            width: 1.1rem;
+            height: 0.4rem;
+          }
+          img {
+            display: block;
+            width: 0.4rem;
+            height: 0.4rem;
           }
         }
-
-        .action-title {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 1.36rem;
-          height: 0.52rem;
-          padding: 0.1rem;
-          box-sizing: border-box;
-          font-size: 12px;
-          line-height: 1;
-          color: #f00;
-          border: 1px solid #f00;
-          border-radius: 15%/50%;
-          text-align: center;
-        }
       }
 
-      .action-text {
-        width: 100%;
-        height: 0.8rem;
-        padding: 0.2rem 0;
-        box-sizing: border-box;
-      }
+      .publish-action {
+        position: fixed;
+        right: 0.24rem;
+        bottom: 1.3rem;
+        width: 1.0rem;
+        height: 1.0rem;
+        border-radius: 50%;
+        border: 1px solid #f00;
+        background: #f00;
 
-      .action-reply {
-        position: relative;
-        width: 100%;
-        height: 0.4rem;
-
-        .reply-desc {
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          display: flex;
-          justify-content: space-between;
-          width: 1.1rem;
-          height: 0.4rem;
-        }
-        img {
+        .publish-icon {
           display: block;
-          width: 0.4rem;
-          height: 0.4rem;
+          width: 0.64rem;
+          height: 0.64rem;
+          padding: 0.18rem;
         }
-      }
-    }
-
-    .publish-action {
-      position: fixed;
-      right: 0.24rem;
-      bottom: 1.3rem;
-      width: 1.0rem;
-      height: 1.0rem;
-      border-radius: 50%;
-      border: 1px solid #f00;
-      background: #f00;
-
-      .publish-icon {
-        display: block;
-        width: 0.64rem;
-        height: 0.64rem;
-        padding: 0.18rem;
       }
     }
 
     .reply-detail {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 998;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, .5);
-
       .reply-form {
-        position: absolute;
+        position: fixed;
         right: 0;
         bottom: 0;
         width: 100%;
         height: 3.22rem;
         padding: 0.2rem;
+        z-index: 998;
         box-sizing: border-box;
         background: #e6e6e6;
 
@@ -315,6 +287,18 @@
           }
         }
       }
+    }
+
+    .black-curtain {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 998;
+      width: 100%;
+      height: 100%;
+      z-index: 996;
+      background: rgba(0, 0, 0, .5);
     }
 
   }

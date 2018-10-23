@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import { Indicator } from 'mint-ui'
+    import { Toast, Indicator } from 'mint-ui'
     import qs from 'qs'
     export default {
       components: {
@@ -41,8 +41,14 @@
               if(res.code == 1) {
                 window.localStorage.setItem('Token', res.token)
                 this.$store.commit('HANDLE_USERINFO', res.data)
+                this.$store.commit('HANDLE_ISLOADING')
                 Indicator.close();
                 this.$router.push('/personal')
+              }else {
+                Indicator.close();
+                Toast({
+                  message: res.msg,
+                });
               }
             })
         }
