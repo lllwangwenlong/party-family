@@ -4,10 +4,19 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoConnection = require('./model/config')
+const session = require("express-session")
+const MongoStore = require('connect-mongo')(session);
 
 const indexRouter = require('./routes/index');
 
-var app = express();
+const app = express();
+app.use(session({
+    secret: 'wwlong',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false, maxAge: 1000*60*60*2 },//https
+    store: new MongoStore({ mongooseConnection: mongoConnection })
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
