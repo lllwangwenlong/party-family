@@ -1,8 +1,14 @@
 <template>
   <div>
-    <Header></Header>
-    <SideBar></SideBar>
-    <AppMain></AppMain>
+    <el-row>
+      <el-col :span="4" style="height: 100vh">
+        <SideBar></SideBar>
+      </el-col>
+      <el-col :span="20" style="height: 100vh;overflow-y: scroll">
+        <Header></Header>
+        <AppMain></AppMain>
+      </el-col>
+    </el-row>
   </div>
 </template>
 

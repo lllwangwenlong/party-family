@@ -17,7 +17,19 @@ router.post('/', auth, async (req, res, next) => {//增加管理员
     }
 })
 
-// /admin/adminUser.login 路由
+router.get('/getAdminUsers', auth, async (req, res, next) => {//获取管理员信息
+    try{
+        const data = await adminUserModel.find()
+        res.json({
+            code: 200,
+            msg: '获取管理员信息成功',
+            data
+        })
+    } catch (err) {
+        next(err)
+    }
+})
+// /Admin/adminUser.login 路由
 router.post('/login', async (req, res, next) => {//登录
     try {
         const{ username, password } = req.body

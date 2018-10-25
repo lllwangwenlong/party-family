@@ -1,0 +1,25 @@
+.fll {
+  float: left;
+}
+
+.flr {
+  float: right;
+}
+
+.clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: rgb(191, 203, 217);
+}
+
+//全局card样式
+.app-main .el-card {
+  min-height: calc(100vh - 230px);
+}
