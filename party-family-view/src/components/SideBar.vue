@@ -26,6 +26,21 @@
           </router-link>
         </el-menu-item>
       </el-submenu>
+      <el-submenu index="news-manage">
+        <template slot="title">
+          新闻管理
+        </template>
+        <el-menu-item index="/layout/news">
+          <router-link to="/layout/news">
+            新闻列表
+          </router-link>
+        </el-menu-item>
+        <el-menu-item index="/layout/addNews">
+          <router-link to="/layout/addNews">
+            添加新闻
+          </router-link>
+        </el-menu-item>
+      </el-submenu>
     </el-menu>
   </div>
 </template>

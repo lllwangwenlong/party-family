@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     props: {
       value: String
@@ -25,10 +26,8 @@
     },
     methods: {
       getToken() {
-        this.$axios.get('http://upload.yaojunrong.com/getToken').then(res => {
-          if(res.code == 200) {
-            this.formData.token = res.data
-          }
+        axios.get('http://upload.yaojunrong.com/getToken').then(res => {
+          this.formData.token = res.data.data
         })
       },
       handleSuccess(res) {

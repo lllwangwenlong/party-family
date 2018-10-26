@@ -34,7 +34,7 @@
       },
       methods: {
         getAdminUsers() {
-          this.$axios.get('/admin/adminUser/getAdminUsers').then(res => {
+          this.$axios.get('/admin/adminUser').then(res => {
             if(res.code == 200) {
               this.$message.success(res.msg)
               this.adminUsersData = res.data

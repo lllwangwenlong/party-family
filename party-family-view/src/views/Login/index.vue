@@ -26,8 +26,8 @@
       data() {
         return {
           formData:{
-            username: 'Admin',
-            password:'Admin'
+            username: 'admin',
+            password:'admin'
           }
         }
       },
@@ -36,7 +36,6 @@
           this.$axios.post('/Admin/adminUser/login', this.formData).then(res => {
             if(res.code == 200) {
               this.$message.success(res.msg)
-              console.log(res)
               this.$router.push({name: 'home'})
             }else {
               this.$message.info(res.msg)

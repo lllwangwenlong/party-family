@@ -4,7 +4,9 @@ import Login from '@/views/Login'
 import Layout from '@/views/Layout'
 import Home from '@/views/Home'
 import Admin from '@/views/Admin'
-import Add from '@/views/Admin/add'
+import addAdmin from '@/views/Admin/add'
+import New from '@/views/News'
+import addNews from '@/views/News/add'
 
 Vue.use(Router)
 
@@ -39,9 +41,25 @@ export default new Router({
         {
           path: 'addAdminUser',
           name: 'addAdminUser',
-          component: Add,
+          component: addAdmin,
           meta: {
             title: '添加管理员'
+          }
+        },
+        {
+          path: 'news',
+          name: 'news',
+          component: New,
+          meta: {
+            title: '新闻管理'
+          }
+        },
+        {
+          path: 'addNews',
+          name: 'addNews',
+          component: addNews,
+          meta: {
+            title: '添加新闻'
           }
         }
       ]
