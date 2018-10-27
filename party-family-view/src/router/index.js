@@ -6,7 +6,9 @@ import Home from '@/views/Home'
 import Admin from '@/views/Admin'
 import addAdmin from '@/views/Admin/add'
 import New from '@/views/News'
-import addNews from '@/views/News/add'
+import addNew from '@/views/News/add'
+import Swiper from '@/views/Swipers'
+import addSwiper from '@/views/Swipers/add'
 
 Vue.use(Router)
 
@@ -57,11 +59,35 @@ export default new Router({
         {
           path: 'addNews',
           name: 'addNews',
-          component: addNews,
+          component: addNew,
           meta: {
             title: '添加新闻'
           }
-        }
+        },
+        {
+          path: 'swiper',
+          name: 'swiper',
+          component: Swiper,
+          meta: {
+            title: '轮播图管理'
+          }
+        },
+        {
+          path: 'addSwiper',
+          name: 'addSwiper',
+          component: addSwiper,
+          meta: {
+            title: '添加轮播图'
+          }
+        },
+        {
+          path: 'editSwiper',
+          name: 'editSwiper',
+          component: addSwiper,
+          meta: {
+            title: '编辑轮播图'
+          }
+        },
       ]
     }
   ]

@@ -124,10 +124,10 @@
           this.formData.contentText = text
         },
         handleSubmit() {
-          this.$axios.post('/admin/news', this.formData).then(res => {
+          this.$axios.post('/admin/News', this.formData).then(res => {
             if(res.code == 200) {
               this.$message.success(res.msg)
-              this.$router.push('/layout/news')
+              this.$router.push('/layout/News')
             }
           })
         },

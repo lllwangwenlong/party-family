@@ -48,7 +48,7 @@ router.get('/:id', async (req, res, next) => {//获取单个新闻信息
     try {
         const { id } = req.params
         const data = await newsModel
-            .findById()
+            .findById(id)
             .populate({
                 path: 'admin_user',
                 select: '-password'

@@ -3,7 +3,7 @@
     <div class="login-box">
       <h2>党建E家后台管理系统</h2>
       <el-form :model="formData"
-               :label-position="left"
+               label-position="left"
                label-width="80px">
         <el-form-item label="用户名:">
           <el-input v-model="formData.username"></el-input>
@@ -34,6 +34,7 @@
       methods: {
         handleLogin() {
           this.$axios.post('/Admin/adminUser/login', this.formData).then(res => {
+            console.log(this.formData);
             if(res.code == 200) {
               this.$message.success(res.msg)
               this.$router.push({name: 'home'})

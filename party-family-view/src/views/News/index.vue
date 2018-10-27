@@ -11,7 +11,7 @@
       <el-table-column label="新闻内容" prop="contentText" width="180" />
       <el-table-column label="新闻分类" prop="type.title" width="100" />
       <el-table-column label="上传时间" prop="create_time" width="100" />
-      <el-table-column label="操作">
+      <el-table-column label="操作" width="300">
         <template slot-scope="scope">
           <el-button type="primary">
             查看详细
@@ -37,7 +37,7 @@
       },
       methods: {
         getData() {
-          this.$axios.get('/admin/news').then(res => {
+          this.$axios.get('/admin/News').then(res => {
             if(res.code == 200) {
               console.log(res);
               res.data.forEach(item => {
@@ -56,8 +56,15 @@
 </script>
 
 <style scoped lang="scss">
-.table-item-img {
-  width: 80px;
-  height: 80px;
-}
+  .table-item-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /deep/ .el-table .cell {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
 </style>

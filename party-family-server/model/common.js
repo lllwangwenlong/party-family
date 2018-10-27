@@ -1,22 +1,15 @@
 const mongoose = require('mongoose')
 
-const news = new mongoose.Schema({
-    title: String,
+const common = new mongoose.Schema({
     content: String,
-    contentText: String,
-    headerImg: String,
-    author: {
+    user: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'admin_user'
     },
-    type: {
+    topic: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'category'
-    },
-    look_num: {
-        type: String,
-        default: 0
-    },
+        ref: 'topic'
+    }
 }, {versionKey: false, timestamps: { createdAt: 'create_time', updatedAt: 'update_time'}})
 
-module.exports = mongoose.model('news', news)
+module.exports = mongoose.model('common', common)

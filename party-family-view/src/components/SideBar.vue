@@ -41,6 +41,21 @@
           </router-link>
         </el-menu-item>
       </el-submenu>
+      <el-submenu index="swiper-manage">
+        <template slot="title">
+          轮播图管理
+        </template>
+        <el-menu-item index="/layout/swiper">
+          <router-link to="/layout/swiper">
+            轮播图列表
+          </router-link>
+        </el-menu-item>
+        <el-menu-item index="/layout/addSwiper">
+          <router-link to="/layout/addSwiper">
+            添加轮播图
+          </router-link>
+        </el-menu-item>
+      </el-submenu>
     </el-menu>
   </div>
 </template>
@@ -63,7 +78,7 @@
     }
 
     /deep/ .el-menu-item {
-      min-width: 100%;
+      min-width: 0;
     }
 
     a {
