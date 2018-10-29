@@ -44,6 +44,28 @@ router.get('/', async (req, res, next) => {//获取全部新闻信息
     }
 })
 
+router.delete('/deleteNew/:id', async (req, res, next) => {//删除单条新闻
+    try{
+        let { id } = req.params
+        const newData = await newsModel.findById({_id: id})
+        if(newData) {
+            const data = await newsModel.deleteOne({_id: id})
+            res.json({
+                code: 200,
+                data,
+                msg: '删除成功'
+            })
+        }else {
+            res.json({
+                code: 403,
+                msg: '新闻不存在'
+            })
+        }
+    } catch (err) {
+        next(err)
+    }
+})
+
 router.get('/:id', async (req, res, next) => {//获取单个新闻信息
     try {
         const { id } = req.params
@@ -54,12 +76,29 @@ router.get('/:id', async (req, res, next) => {//获取单个新闻信息
                 select: '-password'
             })
             .populate({
-                path: 'category',
+                path: 'type',
             })
         res.json({
             code: 200,
             data: data,
             msg: 'success'
+        })
+    }catch (err) {
+        next(err)
+    }
+})
+
+router.patch('/:id', async (req, res, next) => {
+    try {
+        let { title, content, contentText, headerImg, author, type, look_num } = req.body
+        let { id } = req.params
+        const data = await newsModel.findById(id)
+        console.log(data);
+        const updateData = await newsModel.update({$set: { title, content, contentText, headerImg, author, type, look_num }})
+        res.json({
+            code: 200,
+            data: updateData,
+            msg: '修改新闻成功'
         })
     }catch (err) {
         next(err)

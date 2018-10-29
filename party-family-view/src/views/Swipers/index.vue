@@ -20,13 +20,13 @@
           </el-table-column>
           <el-table-column label="操作" width="300">
             <template slot-scope="scope">
-              <el-button type="primary">
+              <el-button type="primary" @click="$router.push({name: 'swiperDetail',query:{id: scope.row._id}})">
                 查看详情
               </el-button>
-              <el-button type="warning" @click="handleEdit(scope.row._id)">
+              <el-button type="warning" @click="$router.push({name: 'editSwiper',query:{id: scope.row._id}})">
                 编辑
               </el-button>
-              <el-button type="danger">
+              <el-button type="danger" @click="handleDelete(scope.row._id)">
                 删除
               </el-button>
             </template>
@@ -51,8 +51,15 @@
             }
           })
         },
-        handleEdit(id) {
-          this.$router.push({name: 'editSwiper',query:{id}})
+        handleDelete(id) {
+          this.$axios.delete(`/admin/swiper/deleteSwiper/${id}`).then(res => {
+            if(res.code == 200) {
+              this.$message.success(res.msg)
+              this.getData()
+            }else {
+              this.$message.info(res.msg)
+            }
+          })
         }
       },
       created() {

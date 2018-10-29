@@ -29,6 +29,44 @@ router.get('/', auth, async (req, res, next) => {//获取管理员信息
         next(err)
     }
 })
+//获取单个管理员信息
+router.get('/:id', auth, async (req, res, next) => {//获取单个管理员信息
+    try{
+        let { id } = req.params
+        const data = await adminUserModel
+            .findById({_id: id})
+            .select('-password')
+        res.json({
+            code: 200,
+            msg: 'success',
+            data
+        })
+    } catch (err) {
+        next(err)
+    }
+})
+// /admin/adminUser/deleteUser/:id
+router.delete('/deleteUser/:id', auth, async (req, res, next) => {//删除管理员
+    try{
+        let { id } = req.params
+        const user = await adminUserModel.findById({_id: id})
+        if(user) {
+            const data = await adminUserModel.deleteOne({_id: id})
+            res.json({
+                code: 200,
+                data,
+                msg: '删除成功'
+            })
+        }else {
+            res.json({
+                code: 403,
+                msg: '没有该用户'
+            })
+        }
+    } catch (err) {
+        next(err)
+    }
+})
 // /admin/adminUser/login 路由
 router.post('/login', async (req, res, next) => {//登录
     try {
@@ -41,7 +79,8 @@ router.post('/login', async (req, res, next) => {//登录
                     req.session.user = user
                     res.json({
                         code: 200,
-                        msg: '登录成功'
+                        msg: '登录成功',
+                        data:user
                     })
                 }else {
                     res.json({

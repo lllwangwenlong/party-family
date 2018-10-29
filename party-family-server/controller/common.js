@@ -38,7 +38,7 @@ router.post('/', auth, async (req, res, next) => {
 
 router.get('/:topicId', async (req, res, next) => {
     try {
-        const topicId = req.params.topicId
+        const { topicId } = req.params
         const commonList = await commonModel
             .find({topic: topicId})
             .populate({

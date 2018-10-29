@@ -26,7 +26,7 @@
       data() {
         return {
           formData:{
-            username: 'admin',
+            username: 'admin8',
             password:'admin'
           }
         }
@@ -34,9 +34,9 @@
       methods: {
         handleLogin() {
           this.$axios.post('/Admin/adminUser/login', this.formData).then(res => {
-            console.log(this.formData);
             if(res.code == 200) {
               this.$message.success(res.msg)
+              this.$store.commit('SAVE_USERINFO',res.data)
               this.$router.push({name: 'home'})
             }else {
               this.$message.info(res.msg)

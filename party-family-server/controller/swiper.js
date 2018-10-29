@@ -30,7 +30,6 @@ router.get('/', async (req, res, next) => {//获取全部轮播图信息
             .populate({
                 path: 'newsId',
             })
-        console.log(dataList);
         res.json({
             code: 200,
             data: dataList,
@@ -46,12 +45,37 @@ router.get('/:id', async (req, res, next) => {//获取单个轮播图信息
         let { id } = req.params
         const data = await swiperModel
             .findById(id)
+            .populate({
+                path: 'newsId'
+            })
         res.json({
             code: 200,
             data ,
             msg: 'success'
         })
     }catch (err) {
+        next(err)
+    }
+})
+
+router.delete('/deleteSwiper/:id', async (req, res, next) => {//删除单条轮播图
+    try{
+        let { id } = req.params
+        const swiperData = await swiperModel.findById(id)
+        if(swiperData) {
+            const data = await swiperModel.deleteOne({_id: id})
+            res.json({
+                code: 200,
+                data,
+                msg: '删除成功'
+            })
+        }else {
+            res.json({
+                code: 403,
+                msg: '轮播图不存在'
+            })
+        }
+    } catch (err) {
         next(err)
     }
 })

@@ -29,6 +29,9 @@ const xhr = {
   },
   patch(url, data, config) {
     return this.fetch(url, data, config, 'patch')
+  },
+  delete(url, data, config) {
+    return this.fetch(url, data, config, 'delete')
   }
 }
 export default xhr

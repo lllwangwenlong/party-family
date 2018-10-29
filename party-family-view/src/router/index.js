@@ -5,10 +5,13 @@ import Layout from '@/views/Layout'
 import Home from '@/views/Home'
 import Admin from '@/views/Admin'
 import addAdmin from '@/views/Admin/add'
+import adminDetail from '@/views/Admin/detail'
 import New from '@/views/News'
 import addNew from '@/views/News/add'
+import newDetail from '@/views/News/detail'
 import Swiper from '@/views/Swipers'
 import addSwiper from '@/views/Swipers/add'
+import swiperDetail from '@/views/Swipers/detail'
 
 Vue.use(Router)
 
@@ -49,6 +52,14 @@ export default new Router({
           }
         },
         {
+          path: 'adminUserDetail',
+          name: 'adminUserDetail',
+          component: adminDetail,
+          meta: {
+            title: '管理员详情'
+          }
+        },
+        {
           path: 'news',
           name: 'news',
           component: New,
@@ -62,6 +73,22 @@ export default new Router({
           component: addNew,
           meta: {
             title: '添加新闻'
+          }
+        },
+        {
+          path: 'newDetail',
+          name: 'newDetail',
+          component: newDetail,
+          meta: {
+            title: '新闻详情'
+          }
+        },
+        {
+          path: 'editNew',
+          name: 'editNew',
+          component: addNew,
+          meta: {
+            title: '编辑新闻'
           }
         },
         {
@@ -86,6 +113,14 @@ export default new Router({
           component: addSwiper,
           meta: {
             title: '编辑轮播图'
+          }
+        },
+        {
+          path: 'swiperDetail',
+          name: 'swiperDetail',
+          component: swiperDetail,
+          meta: {
+            title: '轮播图详情'
           }
         },
       ]

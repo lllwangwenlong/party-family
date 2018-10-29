@@ -13,13 +13,13 @@
       <el-table-column label="上传时间" prop="create_time" width="100" />
       <el-table-column label="操作" width="300">
         <template slot-scope="scope">
-          <el-button type="primary">
+          <el-button type="primary" @click="$router.push({name: 'newDetail', query:{id: scope.row._id}})">
             查看详细
           </el-button>
-          <el-button type="primary">
+          <el-button type="primary" @click="$router.push({name: 'editNew', query:{id:scope.row._id}})">
             编辑
           </el-button>
-          <el-button type="danger">
+          <el-button type="danger" @click="handleDelete(scope.row._id)">
             删除
           </el-button>
         </template>
@@ -37,14 +37,20 @@
       },
       methods: {
         getData() {
-          this.$axios.get('/admin/News').then(res => {
+          this.$axios.get('/admin/news').then(res => {
             if(res.code == 200) {
-              console.log(res);
               res.data.forEach(item => {
                 item.create_time = new Date(item.create_time).toLocaleString()
               })
               this.formData = res.data
+            }
+          })
+        },
+        handleDelete(id) {
+          this.$axios.delete(`/admin/news/deleteNew/${id}`).then(res => {
+            if(res.code == 200) {
               this.$message.success(res.msg)
+              his.getData()
             }
           })
         }

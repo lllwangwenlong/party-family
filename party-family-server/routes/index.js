@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.use('/admin/adminUser', require('../controller/adminUser'))
-router.use('/admin/News', require('../controller/news'))
+router.use('/admin/news', require('../controller/news'))
 router.use('/admin/category', require('../controller/category'))
 router.use('/admin/swiper', require('../controller/swiper'))
 router.use('/admin/topic', require('../controller/topic'))

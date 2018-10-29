@@ -37,8 +37,11 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="handleSubmit">
+          <el-button type="primary" @click="handleSubmit" v-if="!this.isEdit">
             提交
+          </el-button>
+          <el-button type="primary" @click="handleSave" v-else>
+            保存
           </el-button>
         </el-form-item>
       </el-form>
@@ -49,7 +52,7 @@
 <script>
   import Upload from '@/components/Upload'
   import axios from 'axios'
-  import {quillEditor, Quill} from 'vue-quill-editor'
+  import { quillEditor, Quill } from 'vue-quill-editor'
   import {container, ImageExtend, QuillWatch} from 'quill-image-extend-module'
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'
@@ -75,6 +78,7 @@
           token: '',
           categories: [],
           users: [],
+          isEdit: false,
           editorOption: {
             modules: {
               ImageExtend: {
@@ -124,18 +128,59 @@
           this.formData.contentText = text
         },
         handleSubmit() {
-          this.$axios.post('/admin/News', this.formData).then(res => {
+          this.$axios.post('/admin/news', this.formData).then(res => {
             if(res.code == 200) {
               this.$message.success(res.msg)
               this.$router.push('/layout/News')
             }
           })
         },
+        handleSave() {
+          this.$axios.patch(`/admin/news/${this.$route.query.id}`,this.formData).then(res => {
+            if(res.code == 200) {
+              this.$message.success(res.msg)
+              this.$router.push('/layout/News')
+            }
+          })
+        },
+        getEditData() {
+          this.$axios.get(`/admin/news/${this.$route.query.id}`).then(res => {
+            if(res.code == 200) {
+              this.formData = res.data
+            }
+          })
+        }
       },
       created() {
+        if(this.$route.name == 'editNew') {
+          this.isEdit = true
+        }else {
+          this.isEdit = false
+        }
         this.getUser()
         this.getToken()
         this.getCategory()
+        if(this.isEdit) {
+          this.getEditData()
+        }
+      },
+      watch: {
+        $route(to, from) {
+          if(to.name == 'editNew') {
+            this.isEdit = true
+          }else {
+            this.isEdit = false
+            this.formData = {
+              title: '',
+              content: '',
+              contentText: '',
+              headerImg: '',
+              author: '',
+              type: '',
+              look_num: '',
+            }
+          }
+        }
       }
     }
 </script>

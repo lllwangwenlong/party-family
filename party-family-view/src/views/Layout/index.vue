@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row>
-      <el-col :span="4" style="height: 100vh">
+      <el-col :span="4" style="height: 100vh" >
         <SideBar></SideBar>
       </el-col>
       <el-col :span="20" style="height: 100vh;overflow-y: scroll">

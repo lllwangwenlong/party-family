@@ -16,8 +16,8 @@
         <el-table-column label="个人签名" width="180" prop="desc"/>
         <el-table-column label="操作">
           <template slot-scope="scope">
-           <el-button type="primary" size="mini">查看详细</el-button>
-           <el-button type="danger" size="mini">删除</el-button>
+           <el-button type="primary" size="mini" @click="$router.push({name: 'adminUserDetail', query:{id: scope.row._id}})">查看详细</el-button>
+           <el-button type="danger" size="mini" @click="handleDelete(scope.row._id)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -36,12 +36,17 @@
         getAdminUsers() {
           this.$axios.get('/admin/adminUser').then(res => {
             if(res.code == 200) {
-              this.$message.success(res.msg)
               this.adminUsersData = res.data
-            }else {
-              this.$message.info(res.msg)
             }
            })
+        },
+        handleDelete(id) {
+          this.$axios.delete(`/admin/adminUser/deleteUser/${id}`).then(res => {
+            if(res.code == 200) {
+              this.$message.success(res.msg)
+              this.getAdminUsers()
+            }
+          })
         }
       },
       created() {
