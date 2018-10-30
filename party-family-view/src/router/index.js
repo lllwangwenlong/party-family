@@ -12,6 +12,9 @@ import newDetail from '@/views/News/detail'
 import Swiper from '@/views/Swipers'
 import addSwiper from '@/views/Swipers/add'
 import swiperDetail from '@/views/Swipers/detail'
+import Topic from '@/views/Topic'
+import addTopic from '@/views/Topic/add'
+import topicCommon from '@/views/Topic/common'
 
 Vue.use(Router)
 
@@ -121,6 +124,30 @@ export default new Router({
           component: swiperDetail,
           meta: {
             title: '轮播图详情'
+          }
+        },
+        {
+          path: 'topic',
+          name: 'topic',
+          component: Topic,
+          meta: {
+            title: '话题管理'
+          }
+        },
+        {
+          path: 'topicCommon',
+          name: 'topicCommon',
+          component: topicCommon,
+          meta: {
+            title: '评论详情'
+          }
+        },
+        {
+          path: 'addTopic',
+          name: 'addTopic',
+          component: addTopic,
+          meta: {
+            title: '添加话题'
           }
         },
       ]

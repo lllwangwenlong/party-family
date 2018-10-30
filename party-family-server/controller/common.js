@@ -43,7 +43,7 @@ router.get('/:topicId', async (req, res, next) => {
             .find({topic: topicId})
             .populate({
                 path: 'user',
-                select: 'username, avatar'
+                select: 'nickname avatar'
             })
         //查找出需要掺入评论的话题
         res.json({
@@ -56,4 +56,17 @@ router.get('/:topicId', async (req, res, next) => {
     }
 })
 
+router.delete('/:commonId', async (req, res, next) => {
+    try {
+        const { commonId } = req.params
+        const data = await commonModel.deleteOne({_id: commonId})
+        res.json({
+            code: 200,
+            data,
+            msg: '删除成功'
+        })
+    }catch (err) {
+        next(err)
+    }
+})
 module.exports = router

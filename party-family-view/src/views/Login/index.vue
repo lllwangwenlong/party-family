@@ -26,7 +26,7 @@
       data() {
         return {
           formData:{
-            username: 'admin8',
+            username: 'admin6',
             password:'admin'
           }
         }

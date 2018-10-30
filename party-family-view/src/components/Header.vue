@@ -1,12 +1,20 @@
 <template>
   <div class="header">
     党建E家后台管理系统
+    <img :src="userInfo.avatar">
   </div>
 </template>
 
 <script>
     export default {
-        name: "Header"
+      data() {
+        return {
+          userInfo: {}
+        }
+      },
+      created() {
+        this.userInfo = this.$store.state.userInfo
+      }
     }
 </script>
 
@@ -26,5 +34,14 @@
   line-height: 50px;
   text-align: center;
   z-index:996;
+
+  img {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
 }
 </style>

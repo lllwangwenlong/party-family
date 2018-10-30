@@ -35,8 +35,9 @@ router.get('/', async (req, res, next) => {
             .sort({_id: -1})
             .populate({
                 path: 'user',
-                select: 'username avatar'
+                select: 'nickname avatar'
             })
+        console.log(topicList.user);
         res.json({
             code : 200,
             data: topicList,
@@ -44,6 +45,54 @@ router.get('/', async (req, res, next) => {
             msg: 'success'
         })
     }catch (err) {
+        next(err)
+    }
+})
+
+router.get('/:topicId', async (req, res, next) => {//获取单条话题
+    try{
+        let { topicId } = req.params
+        const topicData = await topicModel
+            .findById(topicId)
+            .populate({
+                path: 'user',
+                select: 'nickname avatar'
+            })
+        if(topicData) {
+            res.json({
+                code: 200,
+                data: topicData,
+                msg: 'success'
+            })
+        }else {
+            res.json({
+                code: 403,
+                msg: '话题不存在'
+            })
+        }
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.delete('/deleteTopic/:id', async (req, res, next) => {//删除单条话题
+    try{
+        let { id } = req.params
+        const topicData = await topicModel.findById(id)
+        if(topicData) {
+            const data = await topicModel.deleteOne({_id: id})
+            res.json({
+                code: 200,
+                data,
+                msg: '删除成功'
+            })
+        }else {
+            res.json({
+                code: 403,
+                msg: '话题不存在'
+            })
+        }
+    } catch (err) {
         next(err)
     }
 })

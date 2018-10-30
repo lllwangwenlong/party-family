@@ -56,6 +56,21 @@
           </router-link>
         </el-menu-item>
       </el-submenu>
+      <el-submenu index="topic-manage">
+        <template slot="title">
+          话题管理
+        </template>
+        <el-menu-item index="/layout/topic">
+          <router-link to="/layout/topic">
+            话题列表
+          </router-link>
+        </el-menu-item>
+        <el-menu-item index="/layout/addTopic">
+          <router-link to="/layout/addTopic">
+            发布话题
+          </router-link>
+        </el-menu-item>
+      </el-submenu>
     </el-menu>
   </div>
 </template>
