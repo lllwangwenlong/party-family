@@ -23,6 +23,8 @@ const components = {
   ScoreDetail: () => import('@/views/score-detail/index'),
   FindOrg: () => import('@/views/findorg/index'),
   PartyToday: () => import('@/views/party-today/index'),
+  Demo: () => import('@/views/demo/index'),
+  Second: () => import('@/views/demo/secondPage'),
 
 }
 
@@ -62,6 +64,16 @@ export default new Router({
           component: components.Personal
         },
       ]
+    },
+    {
+      path: '/demo',
+      name: 'demo',
+      component: components.Demo,
+    },
+    {
+      path: '/second',
+      name: 'second',
+      component: components.Second,
     },
     {
       path: '/swiperdetail',

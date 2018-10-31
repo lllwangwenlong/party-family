@@ -8,6 +8,7 @@ import ElementUI from 'element-ui'; //引入elementui
 import 'element-ui/lib/theme-chalk/index.css';//引入elementui样式
 import axios from './utils/index'
 import './style/index.scss'
+import 'normalize.css/normalize.css'
 import store from './store/index'
 
 Vue.config.productionTip = false

@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74c1396b-925d-4d84-ac89-6121a90d4bbc" name="默认" comment="">
-      <change afterPath="$PROJECT_DIR$/party-family-view/src/views/Topic/add.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/party-family-view/src/views/Topic/common.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/party-family-view/src/views/Topic/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/party-family-view/static/imgs/删除.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/party-family-view/static/imgs/回复.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/party-family-client/src/views/demo/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/party-family-client/src/views/demo/secondPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/party-family-server/controller/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-server/controller/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/party-family-server/controller/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-server/controller/topic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/party-family-server/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-server/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/party-family-view/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-view/src/components/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/party-family-view/src/components/SideBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-view/src/components/SideBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/party-family-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/party-family-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/party-family-client/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-client/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/party-family-view/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-view/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/party-family-view/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-view/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/party-family-view/src/style/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-view/src/style/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/party-family-view/src/views/Login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/party-family-view/src/views/Login/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,53 +24,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="common.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/party-family-view/src/views/Topic/common.vue">
+      <file leaf-file-name="secondPage.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/party-family-client/src/views/demo/secondPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1602">
-              <caret line="36" column="30" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="30" />
-              <folding>
-                <element signature="n#div#0;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#2;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="e#1813#2044#0" />
-                <element signature="e#2071#2320#0" />
-                <element signature="e#2598#3378#0" />
-                <element signature="e#3398#4212#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/party-family-server/controller/common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="31" />
-              <folding>
-                <element signature="e#1001#1421#0" />
-                <element signature="e#1478#1735#0" />
-              </folding>
+            <state relative-caret-position="111">
+              <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/party-family-view/src/views/Login/index.vue">
+        <entry file="file://$PROJECT_DIR$/party-family-client/src/views/demo/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/party-family-server/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="25" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="25" />
+            <state relative-caret-position="525">
+              <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="53" selection-end-column="44" />
+              <folding>
+                <element signature="n#template#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,10 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/party-family-view/src/views/admin/index.vue" />
-        <option value="$PROJECT_DIR$/party-family-view/src/views/Home/index.vue" />
-        <option value="$PROJECT_DIR$/party-family-view/src/components/upload-avatar.vue" />
-        <option value="$PROJECT_DIR$/party-family-view/src/views/Admin/add.vue" />
         <option value="$PROJECT_DIR$/party-family-server/controller/auth.js" />
         <option value="$PROJECT_DIR$/party-family-client/src/views/change-password/index.vue" />
         <option value="$PROJECT_DIR$/party-family-server/controller/news.vue" />
@@ -131,23 +92,27 @@
         <option value="$PROJECT_DIR$/party-family-view/src/views/Swipers/detail.vue" />
         <option value="$PROJECT_DIR$/party-family-view/src/store/index.vue" />
         <option value="$PROJECT_DIR$/party-family-view/src/store/index.js" />
-        <option value="$PROJECT_DIR$/party-family-view/src/main.js" />
         <option value="$PROJECT_DIR$/party-family-server/controller/adminUser.js" />
         <option value="$PROJECT_DIR$/party-family-view/src/views/common/index.vue" />
         <option value="$PROJECT_DIR$/party-family-view/src/views/topic/index.vue" />
-        <option value="$PROJECT_DIR$/party-family-view/src/components/SideBar.vue" />
         <option value="$PROJECT_DIR$/party-family-view/src/views/Topic/add.vue" />
         <option value="$PROJECT_DIR$/party-family-server/model/common.js" />
         <option value="$PROJECT_DIR$/party-family-server/model/topic.js" />
-        <option value="$PROJECT_DIR$/party-family-view/src/router/index.js" />
         <option value="$PROJECT_DIR$/party-family-server/controller/topic.js" />
         <option value="$PROJECT_DIR$/party-family-view/src/views/Topic/index.vue" />
         <option value="$PROJECT_DIR$/party-family-server/controller/common.js" />
         <option value="$PROJECT_DIR$/party-family-view/src/components/Header.vue" />
         <option value="$PROJECT_DIR$/party-family-view/src/App.vue" />
         <option value="$PROJECT_DIR$/party-family-view/src/style/index.scss" />
-        <option value="$PROJECT_DIR$/party-family-view/src/views/Login/index.vue" />
         <option value="$PROJECT_DIR$/party-family-view/src/views/Topic/common.vue" />
+        <option value="$PROJECT_DIR$/party-family-view/src/views/Login/index.vue" />
+        <option value="$PROJECT_DIR$/party-family-view/src/router/index.js" />
+        <option value="$PROJECT_DIR$/party-family-view/src/main.js" />
+        <option value="$PROJECT_DIR$/party-family-view/src/views/demo/index.vue" />
+        <option value="$PROJECT_DIR$/party-family-view/src/components/SideBar.vue" />
+        <option value="$PROJECT_DIR$/party-family-client/src/views/demo/index.vue" />
+        <option value="$PROJECT_DIR$/party-family-client/src/router/index.js" />
+        <option value="$PROJECT_DIR$/party-family-client/src/views/demo/secondPage.vue" />
       </list>
     </option>
   </component>
@@ -173,11 +138,11 @@
       <path value="$PROJECT_DIR$/party-family-view/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="115" />
-    <option name="y" value="23" />
-    <option name="width" value="1159" />
-    <option name="height" value="692" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="203" />
+    <option name="y" value="50" />
+    <option name="width" value="978" />
+    <option name="height" value="639" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="添加" />
@@ -187,7 +152,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,58 +162,41 @@
             <path>
               <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
               <item name="party-family" type="462c0819:PsiDirectoryNode" />
-              <item name="party-family-server" type="462c0819:PsiDirectoryNode" />
+              <item name="party-family-client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
               <item name="party-family" type="462c0819:PsiDirectoryNode" />
-              <item name="party-family-server" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
-              <item name="party-family" type="462c0819:PsiDirectoryNode" />
-              <item name="party-family-server" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
-              <item name="party-family" type="462c0819:PsiDirectoryNode" />
-              <item name="party-family-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
-              <item name="party-family" type="462c0819:PsiDirectoryNode" />
-              <item name="party-family-view" type="462c0819:PsiDirectoryNode" />
+              <item name="party-family-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
               <item name="party-family" type="462c0819:PsiDirectoryNode" />
-              <item name="party-family-view" type="462c0819:PsiDirectoryNode" />
+              <item name="party-family-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
+              <item name="party-family" type="462c0819:PsiDirectoryNode" />
+              <item name="party-family-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
               <item name="party-family" type="462c0819:PsiDirectoryNode" />
-              <item name="party-family-view" type="462c0819:PsiDirectoryNode" />
+              <item name="party-family-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="party-family" type="b2602c69:ProjectViewProjectNode" />
-              <item name="party-family" type="462c0819:PsiDirectoryNode" />
-              <item name="party-family-view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Login" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,14 +210,15 @@
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Downloads\webstorm\party-family\party-family-view\src\views\News" />
-      <recent name="E:\Downloads\webstorm\party-family\party-family-server\model" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Downloads\webstorm\party-family\party-family-client\src\views\demo" />
       <recent name="E:\Downloads\webstorm\party-family\party-family-view\static\imgs" />
       <recent name="E:\Downloads\webstorm\party-family\party-family-view\src\views\Swipers" />
       <recent name="E:\Downloads\webstorm\party-family\party-family-view\src\views\News" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Downloads\webstorm\party-family\party-family-view\src\views\News" />
+      <recent name="E:\Downloads\webstorm\party-family\party-family-server\model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -330,9 +278,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev (3)" />
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.dev (2)" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.dev (3)" />
         <item itemvalue="npm.dev (1)" />
       </list>
     </recent_temporary>
@@ -356,26 +304,37 @@
       <workItem from="1540513275951" duration="20055000" />
       <workItem from="1540602754444" duration="21233000" />
       <workItem from="1540772118875" duration="23853000" />
-      <workItem from="1540859067960" duration="17205000" />
+      <workItem from="1540859067960" duration="17227000" />
+      <workItem from="1540944767088" duration="12672000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114946000" />
+    <option name="totallyTimeSpent" value="127640000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="115" y="23" width="1159" height="692" extended-state="1" />
+    <frame x="203" y="50" width="978" height="639" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.482821" visible="true" weight="0.18733273" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48" visible="true" weight="0.21276596" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.4547414" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3254973" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32845187" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28933093" />
-      <window_info id="npm" order="3" sideWeight="0.517179" side_tool="true" weight="0.18733273" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.258" />
+      <window_info id="npm" order="3" sideWeight="0.52" side_tool="true" weight="0.21276596" />
       <window_info id="Structure" order="1" sideWeight="0.51182795" side_tool="true" weight="0.21199143" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.33453888" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.334" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -384,7 +343,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3254973" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,43 +353,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/party-family-view/src/views/Home/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/party-family-server/model/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="78" selection-start-line="1" selection-start-column="78" selection-end-line="1" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/party-family-client/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#140#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/party-family-server/controller/news.vue" />
-    <entry file="file://$PROJECT_DIR$/party-family-client/src/views/change-password/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/party-family-server/routes/users.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -499,13 +424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" selection-start-line="4" selection-end-line="5" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#2;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#3;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#4;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -535,9 +453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -545,9 +460,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -555,17 +467,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="85" column="30" lean-forward="true" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/party-family-view/src/components/SideBar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="69" column="16" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
-          <folding>
-            <element signature="n#el-submenu#0;n#el-menu#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-submenu#1;n#el-menu#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -596,16 +497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/party-family-view/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="137" column="28" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/party-family-server/model/topic.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -613,13 +504,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/party-family-view/src/views/common/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="14" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-view/src/views/common/index.vue" />
     <entry file="file://$PROJECT_DIR$/party-family-view/src/views/Topic/add.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -721,17 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/party-family-view/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#140#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/party-family-view/src/views/Layout/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -763,8 +637,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/party-family-server/controller/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="225">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="31" />
           <folding>
             <element signature="e#1001#1421#0" />
             <element signature="e#1478#1735#0" />
@@ -772,16 +646,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/party-family-view/src/views/Login/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/party-family-view/src/views/Topic/common.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1602">
+        <state relative-caret-position="25">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="30" />
           <folding>
             <element signature="n#div#0;n#el-card#0;n#div#0;n#template#0;n#!!top" />
@@ -789,11 +656,95 @@
             <element signature="n#div#0;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#1;n#div#1;n#el-card#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#2;n#el-card#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#1813#2044#0" />
-            <element signature="e#2071#2320#0" />
-            <element signature="e#2598#3378#0" />
-            <element signature="e#3398#4212#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-view/src/views/Login/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-view/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="158" column="28" lean-forward="true" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-view/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#140#161#0" expanded="true" />
+            <element signature="e#375#408#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-view/src/views/demo/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-view/src/components/SideBar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="n#el-submenu#0;n#el-menu#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-submenu#1;n#el-menu#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-submenu#2;n#el-menu#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-submenu#3;n#el-menu#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#template#0;n#el-submenu#3;n#el-menu#0;n#div#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-client/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#140#161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-client/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#1363#2029#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-client/src/views/demo/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="53" selection-end-column="44" />
+          <folding>
+            <element signature="n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/party-family-client/src/views/demo/secondPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
         </state>
       </provider>
     </entry>

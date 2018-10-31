@@ -15,6 +15,7 @@ import swiperDetail from '@/views/Swipers/detail'
 import Topic from '@/views/Topic'
 import addTopic from '@/views/Topic/add'
 import topicCommon from '@/views/Topic/common'
+import Demo from '@/views/demo'
 
 Vue.use(Router)
 
@@ -148,6 +149,14 @@ export default new Router({
           component: addTopic,
           meta: {
             title: '添加话题'
+          }
+        },
+        {
+          path: 'demo',
+          name: 'demo',
+          component: Demo,
+          meta: {
+            title: 'input样式'
           }
         },
       ]

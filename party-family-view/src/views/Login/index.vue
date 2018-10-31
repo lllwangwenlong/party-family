@@ -9,7 +9,7 @@
           <el-input v-model="formData.username"></el-input>
         </el-form-item>
         <el-form-item label="密码:">
-          <el-input v-model="formData.password" type="password"></el-input>
+          <el-input v-model="formData.password" type="password" @keyup.enter.native="handleLogin"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="handleLogin" class="btn">
