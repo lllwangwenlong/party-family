@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div ref="container" class="container" >
     <mt-loadmore :top-method="loadTop"
                  :bottom-method="loadBottom"
                  :bottom-all-loaded="allLoaded"
                  :auto-fill="false"
                  bottomDropText=""
-                 style="font-size: 16px;height: 100%;"
+                 style="font-size: 16px;"
                  ref="loadmore">
       <div class="news-list" v-for="(item, index) in news" :key="index">
         <router-link :to="{ path: '/newsshow/newdetail', query: {newsId: item.newsId}}" class="list-item">
@@ -43,6 +43,7 @@
       return {
         news: [],
         page: 1,
+        wrapperHeight: '',
         pn: {
           page: 1,
           rows: 10,
@@ -82,6 +83,11 @@
     },
     created() {
       this.getNewsData()
+    },
+    mounted() {
+      this.wrapperHeight =
+        document.documentElement.clientHeight
+        - this.$refs.container.getBoundingClientRect().top ;
     }
   }
 </script>

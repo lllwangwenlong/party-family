@@ -24,8 +24,8 @@
       data() {
         return {
           userInfo: {
-            id_card: '',
-            password: ''
+            id_card: '1003',
+            password: '123456'
           }
         }
       },

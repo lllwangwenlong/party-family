@@ -9,7 +9,10 @@
         <ul>
           <li class="detail-item clearfix">
             <span class="fll">头像</span>
-            <img class="flr" :src="userInfo.header">
+            <label class="upload-wrap flr">
+              <img  :src="imgUrl" v-show="imgUrl">
+              <input type="file" style="display: none" @change="handleChange">
+            </label>
           </li>
           <li class="detail-item clearfix">
             <span class="fll">姓名</span>
@@ -83,6 +86,7 @@
       data() {
         return {
           userInfo: {},
+          imgUrl: '',
           stateList: [
             {
               value: '0',
@@ -109,12 +113,12 @@
             if(res. code == 1) {
               Indicator.close();
               this.userInfo = res.data
+              this.imgUrl = res.data.header
             }
           })
         },
         handleEdit() {
           delete this.userInfo.idCard
-          delete this.userInfo.header
           this.$axios.post('/user/modifyInfo.do',this.userInfo).then(res => {
             if(res.code == 1) {
               Toast({
@@ -123,7 +127,22 @@
               this.$router.push('/userinfo')
             }
           })
-        }
+        },
+        handleChange(e) {
+          let _this = this
+          let file = e.target.files[0] //取得所上传图片的所有信息
+          let reader = new FileReader();   //html5读文件
+          reader.readAsDataURL(file); //转BASE64
+          reader.onload = function() {    //读取完毕后调用接口
+            let url = reader.result.split(',')[1]
+            let formData = new FormData()
+            formData.append('myFile',url)
+            _this.$axios.post('/image/uploadBase64.do', formData).then(res => {
+              _this.userInfo.header = res.url
+              _this.imgUrl = reader.result
+            })
+          }
+        },
       },
       created() {
         this.getUserInfo()
@@ -187,6 +206,23 @@
       color: #444;
       font-weight: 400;
 
+      .upload-wrap {
+        position: relative;
+        display: block;
+        width: 0.9rem;
+        height: 0.9rem;
+        border: 1px solid #e8e8e8;
+        border-radius: 6px;
+        cursor: pointer;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+
       select {
         font-size: 14px;
         color: #444;
@@ -229,12 +265,6 @@
         height: 0.56rem;
         margin: 0.22rem 0;
         padding-right: 0.22rem;
-      }
-
-      img {
-        margin: 0.22rem;
-        width: 0.56rem;
-        height: 0.56rem;
       }
     }
   }
